@@ -10,7 +10,7 @@ services:
       - TZ=America/Sao_Paulo
       - DELUGE_LOGLEVEL=error
     volumes:
-      - /Apps/deluge:/config
+      - /Apps/deluge/config:/config
       - /Medias/network-folders/Medias/downloads:/downloads
     ports:
       - 8112:8112
