@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+  jellyfin:
+    container_name: 'jellyfin'
+    image: 'jellyfin/jellyfin'
+
+    user: 1000:1000
+
+    restart: unless-stopped
+    volumes:
+      - /Apps/jellyfin/configs:/configs
+      - /Apps/jellyfin/cache:/cache
+      - /Medias/network-folders/Medias:/Medias
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    network_mode: 'host'
+
