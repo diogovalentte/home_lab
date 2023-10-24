@@ -10,6 +10,7 @@ services:
     restart: unless-stopped
     volumes:
       - /Apps/jellyfin/configs:/configs
+      - /Apps/jellyfin/certs:/certs
       - /Apps/jellyfin/cache:/cache
       - /Medias/network-folders/Medias:/Medias
     extra_hosts:
