@@ -4,15 +4,14 @@ services:
   jellyfin:
     container_name: 'jellyfin'
     image: 'jellyfin/jellyfin'
-
     user: 1000:1000
-
-    restart: unless-stopped
     volumes:
       - /Apps/jellyfin/config:/config
       - /Apps/jellyfin/certs:/certs
       - /Apps/jellyfin/cache:/cache
       - /Medias/network-folders/Medias:/Medias
+    restart: unless-stopped
+    # Jellyfin need these network configs for streaming
     extra_hosts:
       - "host.docker.internal:host-gateway"
     network_mode: 'host'

@@ -11,7 +11,6 @@ services:
     volumes:
       - /Apps/sonarr/config:/config
       - /Medias/network-folders/Medias/:/Medias
+    ports:
+      - 8989:8989
     restart: unless-stopped
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
-    network_mode: 'host'
