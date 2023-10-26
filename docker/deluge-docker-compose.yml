@@ -12,8 +12,7 @@ services:
     volumes:
       - /Apps/deluge/config:/config
       - /Medias/network-folders/Medias:/Medias
-    ports:
-      - 8112:8112
-      - 6881:6881
-      - 6881:6881/udp
     restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    network_mode: 'host'
