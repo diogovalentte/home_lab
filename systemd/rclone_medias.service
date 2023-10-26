@@ -1,0 +1,24 @@
+[Unit]
+Description=Rclone mount /Medias from AWS S3
+AssertPathIsDirectory=/Medias
+After=lighttpd.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rclone mount \
+s3-filecloud-diogovalentium:filecloud-diogovalentium \
+/Medias \
+--allow-other \
+--no-modtime \
+--vfs-disk-space-total-size=100G \
+--cache-dir=/tmp/cache \
+--vfs-cache-mode=writes \
+--vfs-cache-min-free-space=5G \
+--vfs-cache-max-age=1m0s \
+--log-file=/var/log/rclone/filecloud-diogovalentium.log
+ExecStop=/bin/fusermount -u /Medias
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
