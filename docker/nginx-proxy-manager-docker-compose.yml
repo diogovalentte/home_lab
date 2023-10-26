@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  nginx-proxy-manager:
+    container_name: 'nginx-proxy-manager'
+    image: 'jc21/nginx-proxy-manager:latest'
+    volumes:
+      - /Apps/nginx-proxy-manager/data:/data
+      - /Apps/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    network_mode: 'host'
