@@ -10,3 +10,9 @@ services:
     ports:
       - 7575:7575
     restart: unless-stopped
+    networks:
+      - homelab
+
+networks:
+  homelab:
+    name: homelab-net

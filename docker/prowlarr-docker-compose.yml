@@ -13,3 +13,9 @@ services:
     ports:
       - 9696:9696
     restart: unless-stopped
+    networks:
+      - homelab
+
+networks:
+  homelab:
+    name: homelab-net
