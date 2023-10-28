@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  jellyseerr:
+     container_name: jellyseerr
+     image: fallenbagel/jellyseerr:latest
+     environment:
+          - LOG_LEVEL=debug
+          - TZ=America/Sao_Paulo
+     volumes:
+          - /Apps/jellyseerr/config:/app/config
+     ports:
+          - 5055:5055
+     restart: unless-stopped
+     networks:
+       - homelab
+
+networks:
+  homelab:
+    name: homelab-net
