@@ -1,0 +1,22 @@
+version: "2.1"
+
+services:
+  bazarr:
+    container_name: bazarr
+    image: lscr.io/linuxserver/bazarr:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - /Apps/radarr/config:/config
+      - /Medias/network-folders/Medias/:/Medias
+    ports:
+      - 6767:6767
+    restart: unless-stopped
+    networks:
+      - homelab
+
+networks:
+  homelab:
+    name: homelab-net
