@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  dashdot:
+    container_name: 'dashdot'
+    image: mauricenino/dashdot
+    volumes:
+      - /:/mnt/host:ro
+    environment:
+      - DASHDOT_SPEED_TEST_INTERVAL=720
+    ports:
+      - 8639:3001
+    privileged: true # important
+    restart: unless-stopped
+    networks:
+      - homelab
+
+networks:
+  homelab:
+    name: homelab-net
