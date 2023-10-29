@@ -7,6 +7,7 @@ services:
     volumes:
       - /Apps/nginx-proxy-manager/data:/data
       - /Apps/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+      - /Apps/nginx-proxy-manager/auth:/auth
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"
