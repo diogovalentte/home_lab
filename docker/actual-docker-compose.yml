@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  actual_server:
+    container_name: 'actual'
+    image: actualbudget/actual-server:latest
+    volumes:
+      - /Apps/actual/data:/data
+    ports:
+      - '5006:5006'
+    restart: unless-stopped
+    networks:
+      - homelab
+
+networks:
+  homelab:
+    name: homelab-net
