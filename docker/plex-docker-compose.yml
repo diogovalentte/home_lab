@@ -1,0 +1,18 @@
+version: "2.1"
+
+services:
+  plex:
+    container_name: plex
+    image: lscr.io/linuxserver/plex:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+      - VERSION=docker
+    volumes:
+      - /Apps/plex/config:/config
+      - /Medias/network-folders/Medias:/Medias
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    network_mode: host
