@@ -7,6 +7,7 @@ services:
     volumes:
       - /Apps/homarr/configs:/app/data/configs
       - /Apps/homarr/icons:/app/public/icons
+      - /Apps/homarr/data:/data
     ports:
       - 7575:7575
     restart: unless-stopped

@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  plex:
+    container_name: plex
+    image: plexinc/pms-docker
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+    volumes:
+      - /Apps/plex-media-server/config:/config
+      - /Apps/plex-media-server/transcode:/transcode
+      - /Medias/network-folders/Medias:/Medias
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    network_mode: host
