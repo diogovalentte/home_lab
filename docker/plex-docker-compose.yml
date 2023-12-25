@@ -11,7 +11,7 @@ services:
       - VERSION=docker
     volumes:
       - /Apps/plex/config:/config
-      - /Medias/network-folders/Medias:/Medias
+      - /Medias:/Medias
     restart: unless-stopped
     extra_hosts:
       - "host.docker.internal:host-gateway"

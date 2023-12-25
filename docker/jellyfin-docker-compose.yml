@@ -11,7 +11,7 @@ services:
       - /Apps/jellyfin/config:/config
       - /Apps/jellyfin/certs:/certs
       - /Apps/jellyfin/cache:/cache
-      - /Medias/network-folders/Medias:/Medias
+      - /Medias:/Medias
     restart: unless-stopped
     # Jellyfin need these network configs for streaming
     extra_hosts:

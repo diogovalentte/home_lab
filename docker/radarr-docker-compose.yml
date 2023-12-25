@@ -10,7 +10,7 @@ services:
       - TZ=America/Sao_Paulo
     volumes:
       - /Apps/radarr/config:/config
-      - /Medias/network-folders/Medias/:/Medias
+      - /Medias:/Medias
     ports:
       - 7878:7878
     restart: unless-stopped

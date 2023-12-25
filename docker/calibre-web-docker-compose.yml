@@ -11,7 +11,7 @@ services:
       - DOCKER_MODS=linuxserver/mods:universal-calibre
     volumes:
       - /Apps/calibre-web/config:/config
-      - /Medias/network-folders/Medias/Books:/books
+      - /Medias/Books:/books
     ports:
       - 8083:8083
     restart: unless-stopped

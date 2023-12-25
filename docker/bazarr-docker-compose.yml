@@ -10,7 +10,7 @@ services:
       - TZ=America/Sao_Paulo
     volumes:
       - /Apps/bazarr/config:/config
-      - /Medias/network-folders/Medias/:/Medias
+      - /Medias:/Medias
     ports:
       - 6767:6767
     restart: unless-stopped

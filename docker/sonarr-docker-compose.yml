@@ -10,7 +10,7 @@ services:
       - TZ=America/Sao_Paulo
     volumes:
       - /Apps/sonarr/config:/config
-      - /Medias/network-folders/Medias/:/Medias
+      - /Medias:/Medias
     ports:
       - 8989:8989
     restart: unless-stopped
