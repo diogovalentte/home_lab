@@ -1,0 +1,24 @@
+[Unit]
+Description=Rclone mount /Backup from AWS S3
+AssertPathIsDirectory=/Backup
+After=lighttpd.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rclone mount \
+s3-backup-diogovalentium:backup-diogovalentium \
+/Backup \
+--allow-other \
+--no-modtime \
+--vfs-disk-space-total-size=100G \
+--cache-dir=/tmp/cache \
+--vfs-cache-mode=writes \
+--vfs-cache-min-free-space=5G \
+--vfs-cache-max-age=1m0s \
+--log-file=/var/log/rclone/backup-diogovalentium.log
+ExecStop=/bin/fusermount -u /Backup
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
