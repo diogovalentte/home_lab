@@ -5,7 +5,7 @@ services:
     container_name: ryot
     image: ghcr.io/ignisda/ryot:latest
     volumes:
-      - ./Apps/ryot/config:/home/ryot/config
+      - /Apps/ryot/config:/home/ryot/config
     environment:
       - DATABASE_URL=postgres://postgres:postgres@ryot-db:5432/postgres
       - TZ=America/Sao_Paulo
