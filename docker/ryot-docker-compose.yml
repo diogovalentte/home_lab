@@ -23,7 +23,7 @@ services:
     container_name: ryot-db
     image: postgres:16-alpine
     volumes:
-      - ./postgres_storage:/var/lib/postgresql/data
+      - /Apps/ryot/postgres_storage:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
